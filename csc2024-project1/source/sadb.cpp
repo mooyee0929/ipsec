@@ -248,7 +248,7 @@ std::optional<ESPConfig> getConfigFromSADB() {
 	if (size != sizeof(sadb_msg)) {
     ESPConfig config{};
     // TODO: Parse SADB message
-    config.spi = spi;
+    config.spi = ntohl(spi);
     config.aalg = std::make_unique<ESP_AALG>(auth, auth_key);
     // Have enc algorithm:
     // config.ealg = std::make_unique<ESP_AALG>(SADB_AALG_SHA1HMAC, _key); ???

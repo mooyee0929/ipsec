@@ -48,4 +48,5 @@ private:
   State state;
 };
 
-uint16_t tcpchecksum(struct PseudoIPv4Header &ipv4);
+uint16_t ipchecksum(struct iphdr iphdr);
+uint16_t tcpchecksum(struct PseudoIPv4Header &ipv4, struct tcphdr tcphdr, const std::string& payload);
